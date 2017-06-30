@@ -1,0 +1,1 @@
+Idea: get weather info by inputting city in search bar. Save your recently searched cities to the state and persist with local storage. 
