@@ -21,15 +21,14 @@ class Search extends Component {
   }
 
   handleChange(e) {
-    // const value = [...this.state.value];
-    // value = 
-    this.setState({ value: e.target.value });
+    this.setState({ value: e.target.value.trim() });
   }
 
   weather(evt){
     evt.preventDefault();
-    console.log(this.state.value)
-    this.props.getWeather(this.state.value);
+    const city = this.state.value;
+    console.log('city', city);
+    this.props.getWeather(city);
     this.setState({value:''})
     this.form.reset();
   }

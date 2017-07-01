@@ -49,7 +49,7 @@ class App extends Component {
       .then(data => {
         console.log(data);
         this.currentSearch(data);
-        this.saveLocal(local);
+        this.saveLocal(data.name);
       })
   }
   

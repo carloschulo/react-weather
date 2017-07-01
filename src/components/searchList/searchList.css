@@ -4,6 +4,7 @@
   align-items: flex-start;
   width: 100%;
   padding: 10px;
+  overflow-y: scroll;
 }
 
 .search-list ul, .search-list li {
