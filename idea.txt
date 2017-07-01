@@ -1,6 +1,6 @@
 Idea: get weather info by inputting city in search bar. Save your recently searched cities to the state and persist with local storage. 
 
 TODO: 
--Error handling for bad search results 
+-Error handling for bad search results : 404
 -display  weather 
-- persist with local storage
+-display list of searched cities

@@ -1,3 +1,3 @@
 import Search from './search/Search';
-
-export { Search };
+import Weather from './weather/Weather';
+export { Search, Weather };

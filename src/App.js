@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { fetchWeather } from './utils/api';
-import { Search } from './components';
+import { Search, Weather } from './components';
 import './App.css';
 
 
@@ -16,7 +16,6 @@ class App extends Component {
     }
   }
 
-  
   componentWillMount() {
     const localStorageRef = localStorage.getItem('searched');
     if(localStorageRef){
@@ -59,6 +58,9 @@ class App extends Component {
       <div className="App">
         <Search 
           getWeather={this.getWeather}
+        />
+        <Weather 
+          currentSearch={this.state.current}
         />
       </div>
     );
