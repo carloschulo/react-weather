@@ -15,16 +15,23 @@ class App extends Component {
       current: {}
     }
   }
-  componentDidMount() {
-    
+
+  
+  componentWillMount() {
+    const localStorageRef = localStorage.getItem('searched');
+    if(localStorageRef){
+      console.log('local storage: ', localStorageRef)
+      this.setState({ searched: JSON.parse(localStorageRef)})
+    } else {
+      console.log('no local storage')
+    }
   }
+  
   componentWillUpdate(nextProps, nextState) {
-    // console.log('next props: ', nextProps);
-    console.log('next state: ', nextState.searched);
+    //save search results to local storage
     const searched = JSON.stringify(nextState.searched)
     localStorage.setItem('searched', searched)
   }
-  
   
   saveLocal(local){
     const locations = [...this.state.searched]
