@@ -5,3 +5,4 @@ TODO:
 -display  weather 
 -regex/handling search words
 -style it
+-remove duplicated from searched cities

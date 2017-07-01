@@ -19,7 +19,7 @@ class App extends Component {
   componentWillMount() {
     const localStorageRef = localStorage.getItem('searched');
     if(localStorageRef){
-      console.log('local storage: ', localStorageRef)
+      // console.log('local storage: ', localStorageRef)
       this.setState({ searched: JSON.parse(localStorageRef)})
     } else {
       console.log('no local storage')

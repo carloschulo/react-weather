@@ -11,3 +11,7 @@
   margin: 0;
   list-style: none;
 }
+
+.list-group {
+  width: 100%;
+}

@@ -2,15 +2,15 @@ import React from 'react';
 import './searchList.css';
 
 const SearchList = (props) => {
-  console.log(props.list)
+  // console.log(props.list)
   return (
     <div className='search-list'>
       <p>Search list: </p>
-      <ul>
+      <div className='list-group'>
         {props.list.map( (city, index) => (
-          <li key={index}> {city} </li>
+          <button key={index} className='list-group-item'>{index + 1}. {city} </button>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
