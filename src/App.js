@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { fetchWeather } from './utils/api';
-import { Search, Weather } from './components';
+import { Search, Card, SearchList, Results } from './components';
 import './App.css';
 
 
@@ -12,7 +12,7 @@ class App extends Component {
     this.currentSearch = this.currentSearch.bind(this);
     this.state = {
       searched: [],
-      current: {}
+      current: null
     }
   }
 
@@ -39,8 +39,8 @@ class App extends Component {
   }
 
   currentSearch(searchResult){
-    let current = {...this.state.current};
-    current = {};
+    // let current = {...this.state.current};
+    // current = {};
     this.setState({current: searchResult})
   }
 
@@ -56,12 +56,24 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Search 
-          getWeather={this.getWeather}
-        />
-        <Weather 
-          currentSearch={this.state.current}
-        />
+        <div className="App-column">
+        
+            <Search 
+              getWeather={this.getWeather}
+            />
+            {!this.state.current ? null : 
+              <Card>
+                <Results current={this.state.current}/>
+              </Card>
+          }
+        </div>
+        <div className="App-column">
+          <Card width={200}>
+            <SearchList 
+            list={this.state.searched}
+            />
+          </Card>
+        </div>
       </div>
     );
   }

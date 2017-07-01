@@ -3,4 +3,5 @@ Idea: get weather info by inputting city in search bar. Save your recently searc
 TODO: 
 -Error handling for bad search results : 404
 -display  weather 
--display list of searched cities
+-regex/handling search words
+-style it
