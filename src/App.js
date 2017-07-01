@@ -9,8 +9,10 @@ class App extends Component {
     super(props);
     this.getWeather = this.getWeather.bind(this);
     this.saveLocal = this.saveLocal.bind(this);
+    this.currentSearch = this.currentSearch.bind(this);
     this.state = {
-      searched: []
+      searched: [],
+      current: {}
     }
   }
   componentDidMount() {
@@ -23,10 +25,17 @@ class App extends Component {
     this.setState({searched : locations})
   }
 
+  currentSearch(searchResult){
+    let current = {...this.state.current};
+    current = {};
+    this.setState({current: searchResult})
+  }
+
   getWeather(local){
     fetchWeather(local)
       .then(data => {
         console.log(data);
+        this.currentSearch(data);
         this.saveLocal(local);
       })
   }
