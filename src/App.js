@@ -18,6 +18,13 @@ class App extends Component {
   componentDidMount() {
     
   }
+  componentWillUpdate(nextProps, nextState) {
+    // console.log('next props: ', nextProps);
+    console.log('next state: ', nextState.searched);
+    const searched = JSON.stringify(nextState.searched)
+    localStorage.setItem('searched', searched)
+  }
+  
   
   saveLocal(local){
     const locations = [...this.state.searched]
