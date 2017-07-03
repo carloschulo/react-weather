@@ -21,7 +21,7 @@ class Search extends Component {
   }
 
   handleChange(e) {
-    this.setState({ value: e.target.value.trim() });
+    this.setState({ value: e.target.value });
   }
 
   weather(evt){

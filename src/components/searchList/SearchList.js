@@ -1,18 +1,31 @@
-import React from 'react';
-import './searchList.css';
+import React, { Component } from "react";
+import "./searchList.css";
 
-const SearchList = (props) => {
-  // console.log(props.list)
-  return (
-    <div className='search-list'>
-      <p>Search list: </p>
-      <div className='list-group'>
-        {props.list.map( (city, index) => (
-          <button key={index} className='list-group-item'>{index + 1}. {city} </button>
-        ))}
+class SearchList extends Component {
+  constructor(props) {
+    super(props);
+  }
+  fetchWeather(city) {
+    this.props.getWeather(city);
+  }
+  render() {
+    return (
+      <div className="search-list">
+        <p>Search list: </p>
+        <div className="list-group">
+          {this.props.list.map((city, index) =>
+            <button
+              key={index}
+              className="list-group-item"
+              onClick={() => this.fetchWeather(city)}
+            >
+              {index + 1}. {city}{" "}
+            </button>
+          )}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default SearchList;
