@@ -37,7 +37,7 @@ class App extends Component {
   saveLocal(local) {
     const locations = [...this.state.searched];
     locations.push(local);
-    const unique = [...new Set(locations)]
+    const unique = [...new Set(locations)];
     this.setState({ searched: unique });
   }
 
@@ -50,10 +50,11 @@ class App extends Component {
       if (data.status) {
         console.log(data.status);
         this.setState({ searchError: true });
+      } else {
+        console.log(data);
+        this.currentSearch(data);
+        this.saveLocal(data.name);
       }
-      console.log(data);
-      this.currentSearch(data);
-      this.saveLocal(data.name);
     });
   }
   clearError() {
@@ -71,10 +72,13 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-column">
-          <Search getWeather={this.getWeather} />
+          <Search
+            getWeather={this.getWeather}
+            isDisabled={this.state.searchError ? true : false}
+          />
           {!this.state.current || this.state.searchError
             ? null
-            : <Card>
+            : <Card height={275}>
                 <Results current={this.state.current} />
               </Card>}
           {this.state.searchError ? this.error() : null}
@@ -84,6 +88,7 @@ class App extends Component {
             <SearchList
               list={this.state.searched}
               getWeather={this.getWeather}
+              isDisabled={this.state.searchError ? true : false}
             />
           </Card>
         </div>

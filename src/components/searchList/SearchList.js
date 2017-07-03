@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import "./searchList.css";
 
 class SearchList extends Component {
-  constructor(props) {
-    super(props);
-  }
   fetchWeather(city) {
     this.props.getWeather(city);
   }
@@ -13,15 +10,16 @@ class SearchList extends Component {
       <div className="search-list">
         <p>Search list: </p>
         <div className="list-group">
-          {this.props.list.map((city, index) =>
+          {this.props.list.map((city, index) => (
             <button
               key={index}
               className="list-group-item"
               onClick={() => this.fetchWeather(city)}
+              disabled={this.props.isDisabled}
             >
               {index + 1}. {city}{" "}
             </button>
-          )}
+          ))}
         </div>
       </div>
     );

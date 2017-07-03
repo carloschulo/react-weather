@@ -4,3 +4,19 @@
   width: 100%;
   padding: 10px;
 }
+.results div {
+  margin-bottom: 10px;
+}
+
+h1,
+h2,
+h3,
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+.text-trans {
+  text-transform: capitalize;
+}

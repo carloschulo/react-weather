@@ -2,7 +2,7 @@ Idea: get weather info by inputting city in search bar. Save your recently searc
 
 TODO: 
 -Error handling for bad search results : 404 --- COmplete 
--display  weather 
+-display  weather --complete
 -regex/handling search input
 -style it
--remove duplicated from searched cities
+-remove duplicated from searched cities --complete

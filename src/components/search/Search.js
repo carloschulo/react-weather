@@ -1,42 +1,48 @@
-import React, { Component } from 'react';
-import { FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap';
-import './search.css';
+import React, { Component } from "react";
+import { FormGroup, ControlLabel, FormControl } from "react-bootstrap";
+import "./search.css";
 
 class Search extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.getValidationState = this.getValidationState.bind(this);
     this.weather = this.weather.bind(this);
     this.state = {
-      value: ''
-    }
+      value: ""
+    };
   }
 
   getValidationState() {
     const length = this.state.value.length;
-    if (length > 10) return 'success';
-    else if (length > 5) return 'warning';
-    else if (length > 0) return 'error';
+    if (length > 4) return "success";
+    else if (length > 1) return "warning";
+    else if (length > 0) return "error";
   }
 
   handleChange(e) {
     this.setState({ value: e.target.value });
   }
 
-  weather(evt){
+  weather(evt) {
     evt.preventDefault();
+    const length = this.state.value.length;
+    if (length < 1) return;
+
     const city = this.state.value;
-    console.log('city', city);
+    console.log("city", city);
     this.props.getWeather(city);
-    this.setState({value:''})
+    this.setState({ value: "" });
     this.form.reset();
   }
 
   render() {
-    
     return (
-      <form className='form' onSubmit={this.weather} ref={(input) => this.form = input}>
+      <form
+        className="form"
+        onSubmit={this.weather}
+        ref={input => (this.form = input)}
+      >
         <FormGroup
           controlId="formBasicText"
           validationState={this.getValidationState()}
@@ -47,9 +53,9 @@ class Search extends Component {
             value={this.state.value}
             placeholder="Enter City Name"
             onChange={this.handleChange}
+            disabled={this.props.isDisabled}
           />
           <FormControl.Feedback />
-          <HelpBlock>Enter letters only... No Numbers!</HelpBlock>
         </FormGroup>
       </form>
     );

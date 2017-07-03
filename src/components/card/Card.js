@@ -3,7 +3,7 @@ import './card.css'
 
 const Card = (props) => {
   return (
-    <div className='card' style={{width: `${props.width}px`}}>
+    <div className='card' style={{width: `${props.width}px`, height:`${props.height}px`}}>
      {props.children}
     </div>
   );
