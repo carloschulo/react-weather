@@ -37,12 +37,11 @@ class App extends Component {
   saveLocal(local) {
     const locations = [...this.state.searched];
     locations.push(local);
-    this.setState({ searched: locations });
+    const unique = [...new Set(locations)]
+    this.setState({ searched: unique });
   }
 
   currentSearch(searchResult) {
-    // let current = {...this.state.current};
-    // current = {};
     this.setState({ current: searchResult });
   }
 
